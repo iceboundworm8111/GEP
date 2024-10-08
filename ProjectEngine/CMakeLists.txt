@@ -7,7 +7,12 @@ project(PROJECTENGINE)
  )
 
 add_library(ProjectEngine
-src/ProjectEngine/Core.cpp src/ProjectEngine/Core.h
+src/ProjectEngine/ProjectEngine.h 
+src/ProjectEngine/Core.cpp 
+src/ProjectEngine/Core.h
+src/ProjectEngine/Component.h
+
+src/ProjectEngine/Entity.h
 )
 
 add_executable(demo
