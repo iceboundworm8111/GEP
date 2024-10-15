@@ -13,6 +13,8 @@ namespace ProjectEngine
 		{
 			std::shared_ptr<T> rtn = std::make_shared<T>();
 
+			rtn->mEntity = mSelf;
+
 			mComponents.push_back(rtn);
 
 			return rtn;
@@ -21,6 +23,9 @@ namespace ProjectEngine
 		friend struct ProjectEngine::Core;
 
 		std::weak_ptr<Core> mCore;
+		std::weak_ptr<Entity> mSelf;
+		
+
 		std::vector<std::shared_ptr<Component> > mComponents;
 
 	};

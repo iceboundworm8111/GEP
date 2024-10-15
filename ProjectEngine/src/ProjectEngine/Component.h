@@ -1,7 +1,12 @@
 namespace ProjectEngine
 {
+	struct Entity;
 	struct Component
 	{
-		int mDummy;
+		
+	private:
+		friend struct ProjectEngine::Entity;
+		
+		std::weak_ptr<Entity> mEntity;
 	};
 }

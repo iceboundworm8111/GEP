@@ -17,6 +17,7 @@ namespace ProjectEngine
 	{
 		std::shared_ptr<Entity> rtn = std::make_shared<Entity>();
 		mEntities.push_back(rtn);
+		rtn->mSelf = rtn;
 		rtn->mCore = mSelf;
 		std::cout << rtn-> mCore.lock().get() << std::endl;
 
