@@ -11,8 +11,10 @@ src/ProjectEngine/ProjectEngine.h
 src/ProjectEngine/Core.cpp 
 src/ProjectEngine/Core.h
 src/ProjectEngine/Component.h
-
+src/ProjectEngine/Component.cpp
+src/ProjectEngine/Entity.cpp
 src/ProjectEngine/Entity.h
+
 )
 
 add_executable(demo

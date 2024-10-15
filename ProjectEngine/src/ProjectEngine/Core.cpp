@@ -28,7 +28,10 @@ namespace ProjectEngine
 	{
 		for (size_t i = 0; i < 25; i++)
 		{
-
+			for (size_t j = 0; j < mEntities.size(); j++)
+			{
+				mEntities.at(j)->OnTick();
+			}
 		}
 	}
 }

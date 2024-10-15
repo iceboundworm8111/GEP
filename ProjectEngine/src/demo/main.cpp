@@ -3,20 +3,25 @@
 #include <iostream>
 using namespace ProjectEngine;
 
-struct Test : Component
+struct Player : Component
 {
-	int mTemp;
+	void OnInitialize()
+	{
+		std::cout << "OnInitialize Executed" << std::endl;
+	}
+	void OnTick()
+	{
+
+	}
 	
 };
 
 int main()
 {
-	std::cout << "Hello World!" << std::endl;
-
 	std::shared_ptr<Core> core = Core::Initialize();
 	std::shared_ptr<Entity> ent = core->AddEntity();
 
-	ent->AddComponent<Test>();
+	ent->AddComponent<Player>();
 
 	core->start();
 

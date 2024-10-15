@@ -1,5 +1,5 @@
 #include <memory>
-
+#include <vector>
 namespace ProjectEngine
 {
 	struct Core;
@@ -14,6 +14,7 @@ namespace ProjectEngine
 			std::shared_ptr<T> rtn = std::make_shared<T>();
 
 			rtn->mEntity = mSelf;
+			rtn->OnInitialize();
 
 			mComponents.push_back(rtn);
 
@@ -27,6 +28,7 @@ namespace ProjectEngine
 		
 
 		std::vector<std::shared_ptr<Component> > mComponents;
+		void OnTick();
 
 	};
 }
