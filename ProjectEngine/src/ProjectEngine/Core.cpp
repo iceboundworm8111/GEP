@@ -1,6 +1,6 @@
 #include "Core.h"
 #include "Entity.h"
-
+#include <SDL2/SDL.h>
 #include <iostream>
 
 namespace ProjectEngine
@@ -10,6 +10,7 @@ namespace ProjectEngine
 	{
 		std::shared_ptr<Core> rtn = std::make_shared<Core>();
 		rtn->mSelf = rtn;
+
 		return rtn;
 	}
 
