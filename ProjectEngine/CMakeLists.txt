@@ -13,10 +13,22 @@ ${PROJECT_SOURCE_DIR}/contrib/cl-windows-x86_64/lib
 
 )
 
+add_library(Render
+src/Render/Mesh.cpp
+src/Render/Mesh.h
+src/Render/Shader.cpp
+src/Render/Shader.h
+src/Render/Texture.h
+src/Render/Texture.cpp
+src/Render/Model.h
+)
+
+target_link_libraries(Render glew32 SDL2 opengl32)
+
 add_library(ProjectEngine
 src/ProjectEngine/ProjectEngine.h 
-src/ProjectEngine/Core.cpp 
 src/ProjectEngine/Core.h
+src/ProjectEngine/Core.cpp 
 src/ProjectEngine/Component.h
 src/ProjectEngine/Component.cpp
 src/ProjectEngine/Entity.cpp
@@ -39,6 +51,7 @@ src/ProjectEngine/Window.cpp
 
 
 )
+target_link_libraries(ProjectEngine Render)
 
 add_executable(demo
 	src/demo/main.cpp
