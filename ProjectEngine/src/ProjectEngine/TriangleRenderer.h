@@ -1,21 +1,18 @@
 #include "Component.h"
-#include <GL/glew.h>
-
+#include <Render/Render.h>
 namespace ProjectEngine
 {
-	struct TriangleRenderer : Component
+	struct TriangleRenderer
 	{
-		~TriangleRenderer();
+		TriangleRenderer();
 
-		void onInititialize();
-
+		
+	public:		
+		
 	private:
-		GLuint mPositionsVboId;
-		GLuint mVaoId;
-		GLuint mShader;
-		GLuint mProjLocl;
-
-
+		Model mModel;
+		Shader mShader;
 
 	};
+	
 }

@@ -33,11 +33,24 @@ namespace ProjectEngine
 
 	void Core::start()
 	{
-		for (size_t i = 0; i < 25; i++)
+		while (true)
 		{
-			for (size_t j = 0; j < mEntities.size(); j++)
+			for (size_t i = 0; i < 25; i++)
 			{
-				mEntities.at(j)->OnTick();
+				for (size_t j = 0; j < mEntities.size(); j++)
+				{
+					mEntities.at(j)->OnTick();
+				}
+			}
+
+			SDL_Event event = {};
+			while (SDL_PollEvent(&event))
+			{
+				if (event.type == SDL_QUIT)
+				{
+					return;
+				}
+
 			}
 		}
 	}

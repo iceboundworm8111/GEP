@@ -9,24 +9,28 @@ namespace ProjectEngine
 	}
 	Window ::~Window()
 	{
-
+		SDL_GL_DeleteContext(mContext);
+		SDL_DestroyWindow(mRaw);
+		SDL_Quit();
 	}
 	void Window::OnInitialize(int width, int height)
 	{
-		SDL_Window* window = SDL_CreateWindow("Game",
+		mRaw = SDL_CreateWindow("Game",
 			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 			width, height,
 			SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
 
-		if (!SDL_GL_CreateContext(window))
+		if (!mRaw)
 		{
 			throw std::exception();
 		}
+		mContext = SDL_GL_CreateContext(mRaw);
 
 		if (glewInit() != GLEW_OK)
 		{
 			throw std::exception();
 		}
+
 		std::cout << "Width: " << width << " ," << "Height: " << height << std::endl;
 	}
 

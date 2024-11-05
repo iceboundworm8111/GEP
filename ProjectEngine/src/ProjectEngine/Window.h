@@ -13,6 +13,9 @@ namespace ProjectEngine
 
 	private:
 		SDL_Window* mRaw;
+
+		SDL_GLContext mContext;
+
 		Window(const Window& _copy);
 		Window& operator*(const Window& _assign);
 		int mWidth;

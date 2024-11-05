@@ -6,8 +6,12 @@ namespace ProjectEngine
 	struct Entity;
 	struct Component
 	{
-		void OnInitialize();
-		void OnTick();
+	public:
+
+		virtual void OnInitialize();
+		virtual void OnTick();
+		virtual void OnRender();
+		
 
 	private:
 		friend struct ProjectEngine::Entity;
@@ -15,5 +19,6 @@ namespace ProjectEngine
 		std::weak_ptr <Entity> mEntity;
 
 		void Tick();
+		void Render();
 	};
 }

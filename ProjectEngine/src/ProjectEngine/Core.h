@@ -16,6 +16,10 @@ namespace ProjectEngine
 	private:
 		int mDummy;
 		std::shared_ptr<Window> mWindow;
+
+		//std::shared_ptr<Input> mInput;
+		//std::shared_ptr<Audio> mAudio;
+
 		std::vector<std::shared_ptr<Entity>>mEntities;
 		std::weak_ptr<Core> mSelf;
 	};
