@@ -2,16 +2,17 @@
 #include <Render/Render.h>
 namespace ProjectEngine
 {
-	struct TriangleRenderer
+	struct TriangleRenderer : Component
 	{
 		TriangleRenderer();
-
+		void OnRender();
 		
 	public:		
 		
 	private:
-		Model mModel;
-		Shader mShader;
+		Render::Mesh mMesh;
+		Render::Model mModel;
+		Render::Shader mShader;
 
 	};
 	

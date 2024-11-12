@@ -39,6 +39,8 @@ src/ProjectEngine/Window.h
 src/ProjectEngine/Window.cpp
 src/ProjectEngine/TriangleRenderer.cpp
 src/ProjectEngine/TriangleRenderer.h
+src/ProjectEngine/Keyboard.h
+src/ProjectEngine/Keyboard.cpp
 
 
 )

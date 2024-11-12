@@ -22,7 +22,7 @@ namespace ProjectEngine
 		mEntities.push_back(rtn);
 		rtn->mSelf = rtn;
 		rtn->mCore = mSelf;
-		std::cout << rtn-> mCore.lock().get() << std::endl;
+		std::cout << rtn->mCore.lock().get() << std::endl;
 
 		return rtn;
 	}
@@ -35,15 +35,7 @@ namespace ProjectEngine
 	{
 		while (true)
 		{
-			for (size_t i = 0; i < 25; i++)
-			{
-				for (size_t j = 0; j < mEntities.size(); j++)
-				{
-					mEntities.at(j)->OnTick();
-				}
-			}
-
-			SDL_Event event = {};
+			SDL_Event event = { 0 };
 			while (SDL_PollEvent(&event))
 			{
 				if (event.type == SDL_QUIT)
@@ -51,6 +43,15 @@ namespace ProjectEngine
 					return;
 				}
 
+			}
+
+			for (size_t j = 0; j < mEntities.size(); j++)
+			{
+				mEntities.at(j)->OnTick();
+			}
+			for (size_t j = 0; j < mEntities.size(); j++)
+			{
+				mEntities.at(j)->OnRender();
 			}
 		}
 	}

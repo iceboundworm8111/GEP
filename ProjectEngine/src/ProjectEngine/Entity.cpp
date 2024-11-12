@@ -7,7 +7,7 @@ namespace ProjectEngine
 	{
 		for (size_t k = 0; k < mComponents.size(); k++)
 		{
-			mComponents.at(k)->OnTick();
+			mComponents.at(k)->Tick();
 		}
 	}
 	void Entity::OnRender()
