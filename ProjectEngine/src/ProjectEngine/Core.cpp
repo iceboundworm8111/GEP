@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Window.h"
 #include <SDL2/SDL.h>
+#include <GL/glew.h>
 #include <iostream>
 
 namespace ProjectEngine
@@ -49,10 +50,15 @@ namespace ProjectEngine
 			{
 				mEntities.at(j)->OnTick();
 			}
+
+			glClearColor(1,0,0,1);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 			for (size_t j = 0; j < mEntities.size(); j++)
 			{
 				mEntities.at(j)->OnRender();
 			}
+			SDL_GL_SwapWindow(mWindow->mRaw);
 		}
 	}
 }

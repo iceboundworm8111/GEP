@@ -5,6 +5,7 @@
 
 namespace ProjectEngine
 {
+	class Core;
 	struct Window
 	{
 		Window();
@@ -12,7 +13,9 @@ namespace ProjectEngine
 		void OnInitialize(int mWidth, int mHeight);
 
 	private:
+		friend class ProjectEngine::Core;
 		SDL_Window* mRaw;
+
 
 		SDL_GLContext mContext;
 

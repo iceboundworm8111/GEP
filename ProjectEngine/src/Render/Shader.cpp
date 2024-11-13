@@ -1,4 +1,5 @@
 #include "Shader.h"
+#include "Mesh.h"
 
 #include <exception>
 #include <iostream>
@@ -133,6 +134,14 @@ namespace Render
 
 		glUseProgram(id());
 		glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(_value));
+		glUseProgram(0);
+	}
+	void Shader::draw(Mesh& _mesh)
+	{
+		glUseProgram(id());
+		glBindVertexArray(_mesh.id());
+		// TODO: Get 3 from mesh size
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 		glUseProgram(0);
 	}
 }

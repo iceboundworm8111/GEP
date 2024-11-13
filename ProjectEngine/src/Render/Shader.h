@@ -8,6 +8,8 @@
 #include <fstream>
 namespace Render
 {
+	struct Mesh;
+	struct Texture;
 	struct Shader
 	{
 
@@ -15,6 +17,7 @@ namespace Render
 		GLuint id();
 		void uniform(const std::string& _name, const glm::mat4& _value);
 
+		void draw(Mesh& _mesh);
 
 	private:
 		GLuint m_id;
