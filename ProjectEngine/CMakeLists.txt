@@ -25,7 +25,7 @@ src/Render/Model.h
 
 )
 
-target_link_libraries(Render glew32 SDL2 opengl32)
+target_link_libraries(Render glew32 SDL2 opengl32 OpenAL32)
 
 add_library(ProjectEngine
 src/ProjectEngine/ProjectEngine.h 

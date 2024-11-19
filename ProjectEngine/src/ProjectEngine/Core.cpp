@@ -4,6 +4,8 @@
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <iostream>
+#include <AL/al.h>
+#include <AL/alc.h>
 
 namespace ProjectEngine
 {
@@ -13,6 +15,32 @@ namespace ProjectEngine
 		std::shared_ptr<Core> rtn = std::make_shared<Core>();
 		rtn->mWindow = std::make_shared <Window>();
 		rtn->mSelf = rtn;
+
+		//OpenAL stuff
+		ALCdevice* device = alcOpenDevice(NULL);
+
+		if (!device)
+		{
+			throw std::runtime_error("Failed to open audio device");
+		}
+
+		ALCcontext* context = alcCreateContext(device, NULL);
+
+		if (!context)
+		{
+			alcCloseDevice(device);
+			throw std::runtime_error("Failed to create audio context");
+		}
+
+		if (!alcMakeContextCurrent(context))
+		{
+			alcDestroyContext(context);
+			alcCloseDevice(device);
+			throw std::runtime_error("Failed to make context current");
+		}
+
+		alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);
+		//alListener3f(AL_VELOCITY, 0.0f, 0.0f, 0.0f);
 
 		return rtn;
 	}
