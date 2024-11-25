@@ -1,4 +1,6 @@
 #include "TriangleRenderer.h"
+#include "Entity.h"
+#include "Transform.h"
 
 namespace ProjectEngine
 {
@@ -20,6 +22,7 @@ namespace ProjectEngine
 	}
 	void TriangleRenderer::OnRender()
 	{
+	
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1080/ (float)720, 0.1f, 100.0f);
 		mShader.uniform("u_Projection", projection);
 
@@ -34,11 +37,16 @@ namespace ProjectEngine
 
 
 		glm::mat4 modelMatrix = glm::mat4(1.0f);
-		modelMatrix = glm::translate(modelMatrix, glm::vec3(0.0f, 0.0f, -10.0f));
+		/*modelMatrix = glm::translate(modelMatrix, glm::vec3(0.0f, 0.0f, -10.0f));
 		modelMatrix = glm::rotate(modelMatrix, glm::radians(0.0f), glm::vec3(0, 1, 0));
 		modelMatrix = glm::rotate(modelMatrix, glm::radians(0.0f), glm::vec3(1, 0, 0));
 		modelMatrix = glm::rotate(modelMatrix, glm::radians(0.0f), glm::vec3(0, 0, 1));
-		modelMatrix = glm::scale(modelMatrix, glm::vec3(1.0f, 1.0f, 1.0f));
+		modelMatrix = glm::scale(modelMatrix, glm::vec3(1.0f, 1.0f, 1.0f));*/
+
+
+
+		modelMatrix = GetEntity()->GetComponent<Transform>()->GetModelMatrix();
+
 		mShader.uniform("u_Model", modelMatrix);
 
 		mShader.draw(mMesh);

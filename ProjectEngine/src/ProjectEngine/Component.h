@@ -13,8 +13,7 @@ namespace ProjectEngine
 		virtual void OnInitialize();
 		virtual void OnTick();
 		virtual void OnRender();
-		
-
+		std::shared_ptr<Entity> GetEntity();
 	private:
 		friend struct ProjectEngine::Entity;
 		

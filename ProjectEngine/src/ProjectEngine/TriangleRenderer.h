@@ -13,7 +13,7 @@ namespace ProjectEngine
 		Render::Mesh mMesh;
 		Render::Model mModel;
 		Render::Shader mShader;
-
+		
 	};
 	
 }

@@ -41,6 +41,8 @@ src/ProjectEngine/TriangleRenderer.cpp
 src/ProjectEngine/TriangleRenderer.h
 src/ProjectEngine/Keyboard.h
 src/ProjectEngine/Keyboard.cpp
+src/ProjectEngine/Transform.h
+src/ProjectEngine/Transform.cpp
 
 
 )

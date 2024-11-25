@@ -7,6 +7,25 @@ namespace ProjectEngine
 
 	struct Entity
 	{
+		
+
+		template <typename T>
+		std::shared_ptr<T> GetComponent()
+		{
+			for (size_t i = 0; i < mComponents.size(); i++)
+			{
+				std::shared_ptr<T> rtn = std::dynamic_pointer_cast<T>(mComponents[i]);
+				if (rtn)
+				{
+					return rtn;
+				}
+				throw std::runtime_error("Component not found");
+			}
+
+			return nullptr;
+		}
+
+
 	public:
 		template <typename T>
 		std::shared_ptr<T> AddComponent()
