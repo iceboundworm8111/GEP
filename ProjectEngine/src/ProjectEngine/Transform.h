@@ -9,8 +9,8 @@ namespace ProjectEngine
 		glm::vec3 GetPosition() { return mPosition; }
 		void SetPosition(glm::vec3 position) { mPosition = position; }
 	private:
-		glm::vec3 mPosition;
-		glm::vec3 mRotation;
-		glm::vec3 mScale;
+		glm::vec3 mPosition{ 0.0f };
+		glm::vec3 mRotation{ 0.0f };
+		glm::vec3 mScale{ 1.0f };
 	};
 }

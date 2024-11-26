@@ -6,5 +6,4 @@ void main()
 {
 vec4 tex = texture2D(u_Texture, v_TexCoord);
 gl_FragColor = tex;
-gl_FragColor = vec4(0, 1, 0, 1);
 }
