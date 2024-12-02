@@ -43,6 +43,12 @@ src/ProjectEngine/Keyboard.h
 src/ProjectEngine/Keyboard.cpp
 src/ProjectEngine/Transform.h
 src/ProjectEngine/Transform.cpp
+src/ProjectEngine/ModelRenderer.h
+src/ProjectEngine/ModelRenderer.cpp
+src/ProjectEngine/Resource.h
+src/ProjectEngine/Resource.cpp
+src/ProjectEngine/Resources.h
+src/ProjectEngine/Resources.cpp
 
 
 )

@@ -1,29 +1,30 @@
-#include "TriangleRenderer.h"
+#include "ModelRenderer.h"
 #include "Entity.h"
 #include "Transform.h"
+
 namespace ProjectEngine
 {
 
 
-	TriangleRenderer::TriangleRenderer()
-		: mModel("../assets/models/hand/hand.obj")
-		, mShader("../assets/shaders/simple.vert","../assets/shaders/simple.frag")
-		, mTexture("../assets/textures/rain.png")
+	ModelRenderer::ModelRenderer()
+		: mModel("../assets/models/cat/cat.obj")
+		, mShader("../assets/shaders/simple.vert", "../assets/shaders/simple.frag")
+		, mTexture("../assets/textures/cat.png")
 	{
 		Render::Face face;
 		face.a.position = glm::vec3(0.0f, 1.0f, 0.0f);
 		face.b.position = glm::vec3(-1.0f, -1.0f, 0.0f);
 		face.c.position = glm::vec3(1.0f, -1.0f, 0.0f);
-		face.a.texcoord = glm::vec2(0.5f,-1.0f);
+		face.a.texcoord = glm::vec2(0.5f, -1.0f);
 		face.b.texcoord = glm::vec2(0.0f, 0.0f);
 		face.c.texcoord = glm::vec2(1.0f, 0.0f);
 
 		mMesh.add(face);
 	}
-	void TriangleRenderer::OnRender()
+	void ModelRenderer::OnRender()
 	{
-	
-		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1080/ (float)720, 0.1f, 100.0f);
+
+		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1080 / (float)720, 0.1f, 100.0f);
 		mShader.uniform("u_Projection", projection);
 		//Setting the view matrix
 		glm::mat4 view(1.0f);
@@ -32,20 +33,21 @@ namespace ProjectEngine
 		view = glm::rotate(view, glm::radians(0.0f), glm::vec3(1, 0, 0));
 		view = glm::rotate(view, glm::radians(0.0f), glm::vec3(0, 0, 1));
 		view = glm::inverse(view);
-		//mShader.uniform("u_View", view);
-		mShader.uniform("u_View", glm::mat4(1.0f));
+	
+		mShader.uniform("u_View", view);
+		//mShader.uniform("u_View", glm::mat4(1.0f));
 
 
 		//Setting the model matrix
 		glm::mat4 modelMatrix = glm::mat4(1.0f);
 		modelMatrix = GetEntity()->GetComponent<Transform>()->GetModelMatrix();
-		
+
 
 		mShader.uniform("u_Model", modelMatrix);
-		mShader.draw(mMesh,mTexture);
+		mShader.draw(mModel,mTexture);
 
 
-	
+
 	}
 
 

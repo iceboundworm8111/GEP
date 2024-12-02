@@ -14,6 +14,9 @@ namespace ProjectEngine
 	{
 		std::shared_ptr<Core> rtn = std::make_shared<Core>();
 		rtn->mWindow = std::make_shared <Window>();
+
+		rtn->mResources = std::make_shared<Resources>();
+
 		rtn->mSelf = rtn;
 
 		//OpenAL stuff

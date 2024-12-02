@@ -1,5 +1,7 @@
 #include "Shader.h"
 #include "Mesh.h"
+#include "Model.h"
+#include "Texture.h"
 
 #include <exception>
 #include <iostream>
@@ -136,12 +138,25 @@ namespace Render
 		glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(_value));
 		glUseProgram(0);
 	}
-	void Shader::draw(Mesh& _mesh)
+	void Shader::draw(Mesh& _mesh, Texture& _tex)
 	{
 		glUseProgram(id());
 		glBindVertexArray(_mesh.id());
-		// TODO: Get 3 from mesh size
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glBindTexture(GL_TEXTURE_2D, _tex.id());
+		glDrawArrays(GL_TRIANGLES, 0, _mesh.vertex_count());
+		glBindVertexArray(0);
+		glBindTexture(GL_TEXTURE_2D, 0);
 		glUseProgram(0);
 	}
+
+	void Shader::draw(Model& _model, Texture& _tex)
+	{
+		glUseProgram(id());
+		glBindVertexArray(_model.vao_id());
+		glBindTexture(GL_TEXTURE_2D, _tex.id());
+		glDrawArrays(GL_TRIANGLES, 0, _model.vertex_count());
+		glBindVertexArray(0);
+		glBindTexture(GL_TEXTURE_2D, 0);
+		glUseProgram(0);
+	}	
 }

@@ -1,5 +1,7 @@
 #include "Texture.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+
 #include <stb_image.h>
 #include <iostream>
 #include <exception>
@@ -12,9 +14,10 @@ namespace Render
 		, m_dirty(false)
 	{
 		unsigned char* data = stbi_load(_path.c_str(), &m_width, &m_height, NULL, 4);
-
+		
 		if (!data)
 		{
+			std::cout << "Failed to load texture: " << _path << std::endl;
 			throw std::exception();
 		}
 
