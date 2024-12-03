@@ -1,11 +1,15 @@
 #include "Core.h"
 #include "Entity.h"
 #include "Window.h"
+#include "Resources.h"	
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <iostream>
 #include <AL/al.h>
 #include <AL/alc.h>
+#ifdef _EMSCRIPTEN_
+#include <emscripten.h>
+#endif // _EMSCRIPTEN_
 
 namespace ProjectEngine
 {
@@ -48,6 +52,8 @@ namespace ProjectEngine
 		return rtn;
 	}
 
+
+
 	std::shared_ptr<Entity> Core::AddEntity()
 	{
 		std::shared_ptr<Entity> rtn = std::make_shared<Entity>();
@@ -63,33 +69,46 @@ namespace ProjectEngine
 		return mWindow;
 	}
 
+	static void loop(void* _userData)
+	{
+		Core* self = (Core*)_userData;
+		SDL_Event event = { 0 };
+		while (SDL_PollEvent(&event))
+		{
+			if (event.type == SDL_QUIT)
+			{
+				return;
+			}
+
+		}
+
+		for (size_t j = 0; j < mEntities.size(); j++)
+		{
+			mEntities.at(j)->OnTick();
+		}
+
+		glClearColor(1, 0, 0, 1);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		for (size_t j = 0; j < mEntities.size(); j++)
+		{
+			mEntities.at(j)->OnRender();
+		}
+		SDL_GL_SwapWindow(mWindow->mRaw);
+	}
+
 	void Core::start()
 	{
-		while (true)
+		mRunning = true;
+
+#ifdef _EMSCRIPTEN_
+		emscripten_set_main_loop_arg(loop, (void*)this, 60, 1);
+#else
+		while (mRunning)
 		{
-			SDL_Event event = { 0 };
-			while (SDL_PollEvent(&event))
-			{
-				if (event.type == SDL_QUIT)
-				{
-					return;
-				}
-
-			}
-
-			for (size_t j = 0; j < mEntities.size(); j++)
-			{
-				mEntities.at(j)->OnTick();
-			}
-
-			glClearColor(1,0,0,1);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-			for (size_t j = 0; j < mEntities.size(); j++)
-			{
-				mEntities.at(j)->OnRender();
-			}
-			SDL_GL_SwapWindow(mWindow->mRaw);
+			loop((void*)this);
 		}
+#endif // _EMSCRIPTEN_
+
 	}
 }

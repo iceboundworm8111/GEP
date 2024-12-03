@@ -7,9 +7,7 @@ namespace ProjectEngine
 
 
 	ModelRenderer::ModelRenderer()
-		: mModel("../assets/models/cat/cat.obj")
-		, mShader("../assets/shaders/simple.vert", "../assets/shaders/simple.frag")
-		, mTexture("../assets/textures/cat.png")
+
 	{
 		Render::Face face;
 		face.a.position = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -25,7 +23,7 @@ namespace ProjectEngine
 	{
 
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1080 / (float)720, 0.1f, 100.0f);
-		mShader.uniform("u_Projection", projection);
+		mShader->mShader->uniform("u_Projection", projection);
 		//Setting the view matrix
 		glm::mat4 view(1.0f);
 		view = glm::translate(view, glm::vec3(0.0f, 0.0f, 0.0f));
@@ -34,7 +32,7 @@ namespace ProjectEngine
 		view = glm::rotate(view, glm::radians(0.0f), glm::vec3(0, 0, 1));
 		view = glm::inverse(view);
 	
-		mShader.uniform("u_View", view);
+		mShader->mShader->uniform("u_View", view);
 		//mShader.uniform("u_View", glm::mat4(1.0f));
 
 
@@ -43,8 +41,8 @@ namespace ProjectEngine
 		modelMatrix = GetEntity()->GetComponent<Transform>()->GetModelMatrix();
 
 
-		mShader.uniform("u_Model", modelMatrix);
-		mShader.draw(mModel,mTexture);
+		mShader->mShader->uniform("u_Model", modelMatrix);
+		mShader->mShader->draw(mModel,mTexture);
 
 
 

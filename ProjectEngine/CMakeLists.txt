@@ -49,6 +49,9 @@ src/ProjectEngine/Resource.h
 src/ProjectEngine/Resource.cpp
 src/ProjectEngine/Resources.h
 src/ProjectEngine/Resources.cpp
+src/ProjectEngine/Model.h
+src/ProjectEngine/Shader.h
+
 
 
 )

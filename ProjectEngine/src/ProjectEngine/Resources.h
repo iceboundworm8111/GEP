@@ -21,11 +21,12 @@ namespace ProjectEngine
 			}
 			// Create new instance, construct it and add to cache
 			std::shared_ptr<T> rtn = std::make_shared<T>();
-			rtn->m_path = _path;
-			rtn->load();
+			rtn->m_path = ("../assets/"+_path);
+			rtn->OnLoad();
 			m_resources.push_back(rtn);
 			return rtn;
 		}
 	private:
 		std::vector<std::shared_ptr<Resource> > m_resources;
-	};}
+	};
+}

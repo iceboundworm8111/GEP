@@ -9,4 +9,5 @@ namespace ProjectEngine
 	private:
 		std::string m_path;
 		void load();
-	};}
+	};
+}

@@ -9,7 +9,9 @@ namespace ProjectEngine
 
 	struct Core
 	{
+
 		static std::shared_ptr<Core> Initialize();
+		static void loop(void* _userData);
 		void start();
 		std::shared_ptr<Entity> AddEntity();
 		std::shared_ptr<Window> GetWindow() const;
@@ -17,7 +19,7 @@ namespace ProjectEngine
 	private:
 		int mDummy;
 		std::shared_ptr<Window> mWindow;
-
+		bool mRunning;
 		//std::shared_ptr<Input> mInput;
 		//std::shared_ptr<Audio> mAudio;
 		std::shared_ptr<Resources> mResources;
