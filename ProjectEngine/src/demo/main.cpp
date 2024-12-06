@@ -19,19 +19,21 @@ struct Player : Component
 int main()
 {
 	std::shared_ptr<Core> core = Core::Initialize();
-	std::shared_ptr<Entity> ent = core->AddEntity();
 
-	std::shared_ptr<ModelRenderer> ent2 = ent->AddComponent<ModelRenderer>();
-	ent->AddComponent<Transform>();
+	// first
+	std::shared_ptr<Entity> ent = core->AddEntity();
 	ent->AddComponent<Player>();
 
-	ent->AddComponent<TriangleRenderer>();
-	ent->GetComponent<Transform>()->SetPosition(glm::vec3(0.0f, 0.0f, -10.0f));
+	std::shared_ptr<ModelRenderer> mr = ent->AddComponent<ModelRenderer>();
+	mr->SetModel(core->GetResources()->Load<Model>("models/cat/cat"));
+	mr->SetTexture(core->GetResources()->Load<Texture>("textures/cat"));
+	ent->GetComponent<Transform>()->SetPosition(glm::vec3(1.0f, 0.0f, -10.0f));
 
-	ent2->SetModel(core->GetResources()->Load<Model>("assets/models/cat"));
-	ent2->SetTexture(core->GetResources()->Load<Texture>("assets/textures/cat"));
-	ent->AddComponent<ModelRenderer>();
-	ent->GetComponent<Transform>()->SetPosition(glm::vec3(0.0f, 0.0f, -09.0f));
+	// second
+	std::shared_ptr<Entity> ent2 = core->AddEntity();
+	ent2->AddComponent<TriangleRenderer>();
+	ent2->GetComponent<Transform>()->SetPosition(glm::vec3(-1.0f, 0.0f, -10.0f));
+
 	core->start();
 
 	return 0;

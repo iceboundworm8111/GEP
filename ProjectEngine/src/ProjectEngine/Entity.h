@@ -39,6 +39,9 @@ namespace ProjectEngine
 
 			return rtn;
 		}
+
+		std::shared_ptr<Core> GetCore();
+
 	private:
 		friend struct ProjectEngine::Core;
 

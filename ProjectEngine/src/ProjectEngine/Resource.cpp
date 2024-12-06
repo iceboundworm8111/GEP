@@ -3,9 +3,14 @@
 namespace ProjectEngine
 {
 
-	void Resource::load()
+	void Resource::Load()
 	{
 		OnLoad();
+	}
+
+	std::string Resource::GetPath() const
+	{
+		return m_path;
 	}
 
 }

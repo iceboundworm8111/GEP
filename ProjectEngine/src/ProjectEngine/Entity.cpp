@@ -17,4 +17,9 @@ namespace ProjectEngine
 			mComponents.at(ci)->Render();
 		}
 	}
+
+	std::shared_ptr<Core> Entity::GetCore()
+	{
+		return mCore.lock();
+	}
 }

@@ -12,7 +12,7 @@ namespace ProjectEngine
 	{
 	public:
 
-		void OnLoad() { mModel = std::make_shared<Render::Model>(getPath() + ".obj"); };
+		void OnLoad() { mModel = std::make_shared<Render::Model>(GetPath() + ".obj"); };
 
 	private:
 		friend class ModelRenderer;

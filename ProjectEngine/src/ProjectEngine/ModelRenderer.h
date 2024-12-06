@@ -9,9 +9,13 @@ namespace ProjectEngine
 	struct ModelRenderer : Component
 	{
 		ModelRenderer();
+
+		void OnInitialize();
 		void OnRender();
 		void SetModel(std::shared_ptr<Model> _model) { mModel = _model; }
-		void SetTexture(std::shared_ptr<Texture> _texture) { mTexture = _texture; }
+		void SetTexture(std::shared_ptr<Texture> _texture) { 
+			mTexture = _texture;
+		}
 
 
 	private:

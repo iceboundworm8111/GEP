@@ -1,6 +1,11 @@
 #include "ModelRenderer.h"
 #include "Entity.h"
 #include "Transform.h"
+#include "Shader.h"
+#include "Model.h"
+#include "Core.h"
+#include "Resources.h"
+#include "Texture.h"
 
 namespace ProjectEngine
 {
@@ -19,6 +24,13 @@ namespace ProjectEngine
 
 		mMesh.add(face);
 	}
+
+	void ModelRenderer::OnInitialize()
+	{
+
+		mShader = GetEntity()->GetCore()->GetResources()->Load<Shader>("shaders/simple");
+	}
+
 	void ModelRenderer::OnRender()
 	{
 
@@ -42,7 +54,7 @@ namespace ProjectEngine
 
 
 		mShader->mShader->uniform("u_Model", modelMatrix);
-		mShader->mShader->draw(mModel,mTexture);
+		mShader->mShader->draw(*mModel->mModel, *mTexture->mTexture);
 
 
 

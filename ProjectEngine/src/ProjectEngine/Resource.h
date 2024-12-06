@@ -1,13 +1,17 @@
+#pragma once
+
 #include <string>
 
 namespace ProjectEngine
 {
+	struct Resources;
 	struct Resource
 	{
 		virtual void OnLoad() = 0;
-		std::string getPath() const;
+		std::string GetPath() const;
 	private:
+		friend struct ProjectEngine::Resources;
 		std::string m_path;
-		void load();
+		void Load();
 	};
 }

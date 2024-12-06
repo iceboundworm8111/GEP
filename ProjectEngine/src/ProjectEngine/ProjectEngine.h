@@ -7,6 +7,9 @@
 #include "TriangleRenderer.h"
 #include "ModelRenderer.h"
 #include "Transform.h"
+#include "Resources.h"
+#include "Model.h"
+#include "Texture.h"
 
 
 

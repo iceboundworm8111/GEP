@@ -7,6 +7,7 @@
 #include <iostream>
 #include <AL/al.h>
 #include <AL/alc.h>
+#include "Transform.h"
 #ifdef _EMSCRIPTEN_
 #include <emscripten.h>
 #endif // _EMSCRIPTEN_
@@ -57,10 +58,13 @@ namespace ProjectEngine
 	std::shared_ptr<Entity> Core::AddEntity()
 	{
 		std::shared_ptr<Entity> rtn = std::make_shared<Entity>();
-		mEntities.push_back(rtn);
+
 		rtn->mSelf = rtn;
 		rtn->mCore = mSelf;
+		mEntities.push_back(rtn);
 		std::cout << rtn->mCore.lock().get() << std::endl;
+
+		rtn->AddComponent<Transform>();
 
 		return rtn;
 	}
@@ -69,7 +73,12 @@ namespace ProjectEngine
 		return mWindow;
 	}
 
-	static void loop(void* _userData)
+	std::shared_ptr<Resources> Core::GetResources() const
+	{
+		return mResources;
+	}
+
+	void Core::loop(void* _userData)
 	{
 		Core* self = (Core*)_userData;
 		SDL_Event event = { 0 };
@@ -82,19 +91,19 @@ namespace ProjectEngine
 
 		}
 
-		for (size_t j = 0; j < mEntities.size(); j++)
+		for (size_t j = 0; j < self->mEntities.size(); j++)
 		{
-			mEntities.at(j)->OnTick();
+			self->mEntities.at(j)->OnTick();
 		}
 
 		glClearColor(1, 0, 0, 1);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		for (size_t j = 0; j < mEntities.size(); j++)
+		for (size_t j = 0; j < self->mEntities.size(); j++)
 		{
-			mEntities.at(j)->OnRender();
+			self->mEntities.at(j)->OnRender();
 		}
-		SDL_GL_SwapWindow(mWindow->mRaw);
+		SDL_GL_SwapWindow(self->mWindow->mRaw);
 	}
 
 	void Core::start()
