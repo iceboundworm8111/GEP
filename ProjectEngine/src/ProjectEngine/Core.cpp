@@ -78,7 +78,7 @@ namespace ProjectEngine
 		return mResources;
 	}
 
-	void Core::loop(void* _userData)
+	void Core::loop(void* _userData, bool& mRunning)
 	{
 		Core* self = (Core*)_userData;
 		SDL_Event event = { 0 };
@@ -86,6 +86,7 @@ namespace ProjectEngine
 		{
 			if (event.type == SDL_QUIT)
 			{
+				mRunning = false;
 				return;
 			}
 
@@ -115,7 +116,7 @@ namespace ProjectEngine
 #else
 		while (mRunning)
 		{
-			loop((void*)this);
+			loop((void*)this,mRunning);
 		}
 #endif // _EMSCRIPTEN_
 

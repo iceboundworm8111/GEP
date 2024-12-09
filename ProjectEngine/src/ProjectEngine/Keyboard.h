@@ -4,15 +4,16 @@ namespace ProjectEngine
 {
 	struct Keyboard
 	{
-
-
-	public:
-		bool isKey(int _key) { return false; };
-		bool isKeyPressed(int _key) { return false; };
-		bool isKeyReleased(int _key) { return false; };
+		bool isKey(int _key);
+		bool isKeyPressed(int _key);
+		bool isKeyReleased(int _key);
 
 
 	private:
+
+		friend class Input;
+		void Update();
+
 
 		std::vector <int> mKeys;
 		std::vector <int> mPressedKeys;

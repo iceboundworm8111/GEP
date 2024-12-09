@@ -11,7 +11,7 @@ namespace ProjectEngine
 	{
 
 		static std::shared_ptr<Core> Initialize();
-		static void loop(void* _userData);
+		static void loop(void* _userData, bool& _Running);
 		void start();
 		std::shared_ptr<Entity> AddEntity();
 		std::shared_ptr<Window> GetWindow() const;

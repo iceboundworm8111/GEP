@@ -41,6 +41,8 @@ src/ProjectEngine/TriangleRenderer.cpp
 src/ProjectEngine/TriangleRenderer.h
 src/ProjectEngine/Keyboard.h
 src/ProjectEngine/Keyboard.cpp
+src/ProjectEngine/Mouse.h
+src/ProjectEngine/Mouse.cpp
 src/ProjectEngine/Transform.h
 src/ProjectEngine/Transform.cpp
 src/ProjectEngine/ModelRenderer.h
@@ -52,6 +54,8 @@ src/ProjectEngine/Resources.cpp
 src/ProjectEngine/Model.h
 src/ProjectEngine/Shader.h
 src/ProjectEngine/Texture.h
+src/ProjectEngine/Input.h
+src/ProjectEngine/Input.cpp
 
 
 
