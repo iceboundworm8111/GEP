@@ -6,6 +6,7 @@ namespace ProjectEngine
 	struct Entity;
 	struct Window;
 	struct Resources;
+	struct Input;
 
 	struct Core
 	{
@@ -16,11 +17,12 @@ namespace ProjectEngine
 		std::shared_ptr<Entity> AddEntity();
 		std::shared_ptr<Window> GetWindow() const;
 		std::shared_ptr<Resources> GetResources() const;
+		std::shared_ptr<Input> GetInput() const;
 	private:
 		int mDummy;
 		std::shared_ptr<Window> mWindow;
 		bool mRunning;
-		//std::shared_ptr<Input> mInput;
+		std::shared_ptr<Input> mInput;
 		//std::shared_ptr<Audio> mAudio;
 		std::shared_ptr<Resources> mResources;
 

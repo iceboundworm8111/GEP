@@ -10,6 +10,9 @@
 #include "Resources.h"
 #include "Model.h"
 #include "Texture.h"
+#include "Keyboard.h"
+#include"Mouse.h"
+#include "Input.h"
 
 
 

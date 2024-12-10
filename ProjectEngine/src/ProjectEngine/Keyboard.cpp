@@ -8,7 +8,7 @@ namespace ProjectEngine
 		mReleasedKeys.clear();
 	}
 
-	bool Keyboard::isKey(int _key)
+	bool Keyboard::IsKey(int _key)
 	{
 		for (int i = 0; i < mKeys.size(); i++)
 		{
@@ -19,7 +19,7 @@ namespace ProjectEngine
 		}
 		return false;
 	}
-	bool Keyboard::isKeyPressed(int _key)
+	bool Keyboard::IsKeyPressed(int _key)
 	{
 		for (int i = 0; i < mKeys.size(); i++)
 		{
@@ -30,7 +30,7 @@ namespace ProjectEngine
 		}
 		return false;
 	}
-	bool Keyboard::isKeyReleased(int _key)
+	bool Keyboard::IsKeyReleased(int _key)
 	{
 		for (int i = 0; i < mKeys.size(); i++)
 		{

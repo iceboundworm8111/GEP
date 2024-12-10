@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Keyboard.h"
-#include "Mouse.h"
 
 #include <SDL2/SDL.h>
 #include <memory>
@@ -9,7 +7,8 @@
 namespace ProjectEngine
 {
 	struct Core;
-
+	struct Keyboard;
+	struct Mouse;
 	struct Input
 	{
 

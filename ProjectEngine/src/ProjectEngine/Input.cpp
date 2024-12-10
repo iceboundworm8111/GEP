@@ -1,5 +1,7 @@
-#include "Input.h"
 
+#include "Input.h"
+#include "Keyboard.h"
+#include "Mouse.h"
 
 namespace ProjectEngine
 {
@@ -30,11 +32,12 @@ namespace ProjectEngine
 		else if (_event.type == SDL_MOUSEBUTTONDOWN)
 		{
 			mMouse->mClick.push_back(_event.button.button);
-
+			mMouse->mClickPressed.push_back(_event.button.button);
 		}
 		else if (_event.type == SDL_MOUSEBUTTONUP)
 		{
-
+			mMouse->mClick.push_back(_event.button.button);
+			mMouse->mClickReleased.push_back(_event.button.button);
 		}
 	}
 }

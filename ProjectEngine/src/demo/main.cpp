@@ -11,11 +11,17 @@ struct Player : Component
 	}
 	void OnTick()
 	{
+		if (GetKeyboard()->IsKeyPressed(SDLK_a))
+		{
+			std::cout << "A" << std::endl;
+			GetEntity()->GetComponent<Transform>()->SetPosition(GetEntity()->GetComponent<Transform>()->GetPosition() + glm::vec3(1.0f, 0.0f, 0.0f));
+		}
 
 	}
 	
 };
 
+#undef main
 int main()
 {
 	std::shared_ptr<Core> core = Core::Initialize();

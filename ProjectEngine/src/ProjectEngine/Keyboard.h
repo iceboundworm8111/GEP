@@ -4,9 +4,9 @@ namespace ProjectEngine
 {
 	struct Keyboard
 	{
-		bool isKey(int _key);
-		bool isKeyPressed(int _key);
-		bool isKeyReleased(int _key);
+		bool IsKey(int _key);
+		bool IsKeyPressed(int _key);
+		bool IsKeyReleased(int _key);
 
 
 	private:

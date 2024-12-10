@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Window.h"
 #include "Resources.h"	
+#include "Input.h"
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <iostream>
@@ -21,6 +22,8 @@ namespace ProjectEngine
 		rtn->mWindow = std::make_shared <Window>();
 
 		rtn->mResources = std::make_shared<Resources>();
+
+		rtn->mInput = std::make_shared<Input>();
 
 		rtn->mSelf = rtn;
 
@@ -77,6 +80,10 @@ namespace ProjectEngine
 	{
 		return mResources;
 	}
+	std::shared_ptr<Input> Core::GetInput() const
+	{
+		return mInput;
+	}
 
 	void Core::loop(void* _userData, bool& mRunning)
 	{
@@ -89,7 +96,7 @@ namespace ProjectEngine
 				mRunning = false;
 				return;
 			}
-
+			mInput->CheckInput();
 		}
 
 		for (size_t j = 0; j < self->mEntities.size(); j++)
