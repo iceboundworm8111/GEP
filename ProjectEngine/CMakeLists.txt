@@ -56,6 +56,10 @@ src/ProjectEngine/Shader.h
 src/ProjectEngine/Texture.h
 src/ProjectEngine/Input.h
 src/ProjectEngine/Input.cpp
+src/ProjectEngine/Audio.h
+src/ProjectEngine/Audio.cpp
+src/ProjectEngine/AudioSource.h
+src/ProjectEngine/AudioSource.cpp
 
 
 

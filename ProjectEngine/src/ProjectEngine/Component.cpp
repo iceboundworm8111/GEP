@@ -3,6 +3,7 @@
 #include "Core.h"
 #include "Input.h"
 #include "Keyboard.h"
+#include "Transform.h"
 
 namespace ProjectEngine
 {
@@ -25,5 +26,9 @@ namespace ProjectEngine
 	std::shared_ptr<Keyboard> Component::GetKeyboard()
 	{
 		return GetEntity()->GetCore()->GetInput()->GetKeyboard();
+	}
+	std::shared_ptr<Transform> Component::GetTransform()
+	{
+		return GetEntity()->GetComponent<Transform>();
 	}
 }

@@ -26,7 +26,15 @@ namespace ProjectEngine
 		}
 		else if (_event.type == SDL_KEYUP)
 		{
-			mKeyboard->mKeys.push_back(_event.key.keysym.sym);
+			//mKeyboard->mKeys.push_back(_event.key.keysym.sym);
+			for (size_t i = 0; i < mKeyboard->mKeys.size(); i++)
+			{
+				if (mKeyboard->mKeys.at(i) == _event.key.keysym.sym)
+				{
+					mKeyboard->mKeys.erase(mKeyboard->mKeys.begin() + i);
+					i--;
+				}
+			}
 			mKeyboard->mReleasedKeys.push_back(_event.key.keysym.sym);
 		}
 		else if (_event.type == SDL_MOUSEBUTTONDOWN)

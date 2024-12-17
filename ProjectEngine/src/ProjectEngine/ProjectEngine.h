@@ -14,6 +14,9 @@
 #include"Mouse.h"
 #include "Input.h"
 
-
+namespace ProjectEngine
+{
+	using namespace glm;
+}
 
 #endif // !ProjectEngine_ProjectEngine_H

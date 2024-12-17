@@ -1,5 +1,6 @@
 #include <memory>
 #include <vector>
+#include <stdexcept>
 namespace ProjectEngine
 {
 	struct Core;
@@ -19,9 +20,9 @@ namespace ProjectEngine
 				{
 					return rtn;
 				}
-				throw std::runtime_error("Component not found");
+				
 			}
-
+			throw std::runtime_error("Component not found");
 			return nullptr;
 		}
 

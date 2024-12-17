@@ -96,7 +96,11 @@ namespace ProjectEngine
 				mRunning = false;
 				return;
 			}
-			mInput->CheckInput();
+			else
+			{
+				self->mInput->CheckInput(event);
+			}
+			
 		}
 
 		for (size_t j = 0; j < self->mEntities.size(); j++)

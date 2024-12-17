@@ -8,6 +8,7 @@ namespace ProjectEngine
 		glm::mat4 GetModelMatrix();
 		glm::vec3 GetPosition() { return mPosition; }
 		void SetPosition(glm::vec3 position) { mPosition = position; }
+		void Move(glm::vec3 value) { mPosition += value; }
 	private:
 		glm::vec3 mPosition{ 0.0f };
 		glm::vec3 mRotation{ 0.0f };

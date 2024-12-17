@@ -14,7 +14,7 @@ struct Player : Component
 		if (GetKeyboard()->IsKeyPressed(SDLK_a))
 		{
 			std::cout << "A" << std::endl;
-			GetEntity()->GetComponent<Transform>()->SetPosition(GetEntity()->GetComponent<Transform>()->GetPosition() + glm::vec3(1.0f, 0.0f, 0.0f));
+			GetTransform()->Move(vec3(-0.01f, 0.0f, 0.0f));
 		}
 
 	}
@@ -33,12 +33,12 @@ int main()
 	std::shared_ptr<ModelRenderer> mr = ent->AddComponent<ModelRenderer>();
 	mr->SetModel(core->GetResources()->Load<Model>("models/cat/cat"));
 	mr->SetTexture(core->GetResources()->Load<Texture>("textures/cat"));
-	ent->GetComponent<Transform>()->SetPosition(glm::vec3(1.0f, 0.0f, -10.0f));
+	ent->GetComponent<Transform>()->SetPosition(vec3(1.0f, 0.0f, -10.0f));
 
 	// second
 	std::shared_ptr<Entity> ent2 = core->AddEntity();
 	ent2->AddComponent<TriangleRenderer>();
-	ent2->GetComponent<Transform>()->SetPosition(glm::vec3(-1.0f, 0.0f, -10.0f));
+	ent2->GetComponent<Transform>()->SetPosition(vec3(-1.0f, 0.0f, -10.0f));
 
 	core->start();
 

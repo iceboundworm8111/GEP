@@ -6,6 +6,7 @@
 namespace ProjectEngine
 {
 	struct Keyboard;
+	struct Transform;
 	struct Entity;
 	struct Component
 	{
@@ -16,6 +17,7 @@ namespace ProjectEngine
 		virtual void OnRender();
 		std::shared_ptr<Entity> GetEntity();
 		std::shared_ptr<Keyboard> GetKeyboard();
+		std::shared_ptr<Transform> GetTransform();
 	private:
 		friend struct ProjectEngine::Entity;
 		
