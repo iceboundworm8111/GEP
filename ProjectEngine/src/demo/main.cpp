@@ -40,6 +40,8 @@ int main()
 	ent2->AddComponent<TriangleRenderer>();
 	ent2->GetComponent<Transform>()->SetPosition(vec3(-1.0f, 0.0f, -10.0f));
 
+
+
 	core->start();
 
 	return 0;

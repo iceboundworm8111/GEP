@@ -23,8 +23,9 @@ namespace ProjectEngine
 
 		rtn->mResources = std::make_shared<Resources>();
 
-		rtn->mInput = std::make_shared<Input>();
+		rtn->mInput = std::make_shared<Input>(); //Keyboard and Mouse is included in Input to make futher additions easier down the line such as gamepad
 
+		rtn->mAudio = std::make_shared<Audio>();
 		rtn->mSelf = rtn;
 
 		//OpenAL stuff

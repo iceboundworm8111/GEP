@@ -60,7 +60,8 @@ src/ProjectEngine/Audio.h
 src/ProjectEngine/Audio.cpp
 src/ProjectEngine/AudioSource.h
 src/ProjectEngine/AudioSource.cpp
-
+src/ProjectEngine/Sound.h
+src/ProjectEngine/Sound.cpp
 
 
 )

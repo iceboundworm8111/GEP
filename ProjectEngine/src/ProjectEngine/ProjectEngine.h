@@ -13,6 +13,7 @@
 #include "Keyboard.h"
 #include"Mouse.h"
 #include "Input.h"
+#include "AudioSource.h"
 
 namespace ProjectEngine
 {

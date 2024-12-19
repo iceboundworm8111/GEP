@@ -40,7 +40,6 @@ namespace Render
 			fline += "\n";
 			m_frgsrc += fline;
 		}
-		std::cout << m_frgsrc << std::endl;
 		m_dirty = true;
 
 
