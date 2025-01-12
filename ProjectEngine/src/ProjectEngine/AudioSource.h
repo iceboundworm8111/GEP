@@ -16,6 +16,7 @@ namespace ProjectEngine
 		AudioSource();
 		~AudioSource();
 
+		void SetSound(std::shared_ptr<Sound> _sound) { mSound = _sound; alSourcei(mSourceId, AL_BUFFER, mSound->mBufferId); }
 
 		bool IsPlaying();
 		void OnTick();
@@ -28,7 +29,7 @@ namespace ProjectEngine
 		ALsizei mFrequency = 0;
 
 		ALuint mBufferId = 0;
-		ALuint mSourceId = 0;
+		ALuint mSourceId;
 
 		bool mLooping = false;
 	};

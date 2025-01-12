@@ -28,7 +28,7 @@ namespace ProjectEngine
 			alcCloseDevice(mDevice);
 			throw std::runtime_error("unable to make context current");
 		}
-
+		alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);
 	}
 	Audio::~Audio()
 	{

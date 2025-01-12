@@ -3,6 +3,7 @@
 #include "Window.h"
 #include "Resources.h"	
 #include "Input.h"
+#include "Audio.h"
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <iostream>
@@ -28,32 +29,7 @@ namespace ProjectEngine
 		rtn->mAudio = std::make_shared<Audio>();
 		rtn->mSelf = rtn;
 
-		//OpenAL stuff
-		ALCdevice* device = alcOpenDevice(NULL);
-
-		if (!device)
-		{
-			throw std::runtime_error("Failed to open audio device");
-		}
-
-		ALCcontext* context = alcCreateContext(device, NULL);
-
-		if (!context)
-		{
-			alcCloseDevice(device);
-			throw std::runtime_error("Failed to create audio context");
-		}
-
-		if (!alcMakeContextCurrent(context))
-		{
-			alcDestroyContext(context);
-			alcCloseDevice(device);
-			throw std::runtime_error("Failed to make context current");
-		}
-
-		alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);
-		//alListener3f(AL_VELOCITY, 0.0f, 0.0f, 0.0f);
-
+		
 		return rtn;
 	}
 
@@ -84,6 +60,10 @@ namespace ProjectEngine
 	std::shared_ptr<Input> Core::GetInput() const
 	{
 		return mInput;
+	}
+	std::shared_ptr<Audio> Core::GetAudio() const
+	{
+		return mAudio;
 	}
 
 	void Core::loop(void* _userData, bool& mRunning)
