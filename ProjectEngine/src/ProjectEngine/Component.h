@@ -1,5 +1,6 @@
 #pragma once
 
+#include <glm/glm.hpp>
 #include <memory>
 
 
@@ -18,6 +19,8 @@ namespace ProjectEngine
 		std::shared_ptr<Entity> GetEntity();
 		std::shared_ptr<Keyboard> GetKeyboard();
 		std::shared_ptr<Transform> GetTransform();
+		glm::vec3 GetPosition();
+		void SetPosition(glm::vec3 _position);
 	private:
 		friend struct ProjectEngine::Entity;
 		

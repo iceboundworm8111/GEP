@@ -14,7 +14,7 @@ namespace ProjectEngine
 		int channels = 0;
 		int sampleRate = 0;
 		short* output = NULL;
-		size_t samples = stb_vorbis_decode_filename(GetPath().c_str(),&channels, &sampleRate, &output);
+		size_t samples = stb_vorbis_decode_filename((GetPath()+".ogg").c_str(), &channels, &sampleRate, &output);
 
 		if (samples == -1)
 		{

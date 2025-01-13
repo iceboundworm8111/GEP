@@ -62,6 +62,10 @@ src/ProjectEngine/AudioSource.h
 src/ProjectEngine/AudioSource.cpp
 src/ProjectEngine/Sound.h
 src/ProjectEngine/Sound.cpp
+src/ProjectEngine/BoxCollider.h
+src/ProjectEngine/BoxCollider.cpp
+src/ProjectEngine/Rigidbody.h
+src/ProjectEngine/Rigidbody.cpp
 
 
 )
@@ -69,6 +73,6 @@ target_link_libraries(ProjectEngine Render)
 
 add_executable(demo
 	src/demo/main.cpp
-	src/demo/Employee.cpp 	src/demo/Employee.h
+
 )
 target_link_libraries(demo ProjectEngine)

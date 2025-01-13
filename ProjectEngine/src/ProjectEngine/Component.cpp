@@ -31,4 +31,12 @@ namespace ProjectEngine
 	{
 		return GetEntity()->GetComponent<Transform>();
 	}
+	glm::vec3 Component::GetPosition()
+	{
+		return GetTransform()->GetPosition();
+	}
+	void Component::SetPosition(glm::vec3 _position)
+	{
+		GetTransform()->SetPosition(_position);
+	}
 }

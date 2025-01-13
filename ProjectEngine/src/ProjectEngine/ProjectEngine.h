@@ -14,6 +14,8 @@
 #include"Mouse.h"
 #include "Input.h"
 #include "AudioSource.h"
+#include "BoxCollider.h"
+#include "Rigidbody.h"
 
 namespace ProjectEngine
 {

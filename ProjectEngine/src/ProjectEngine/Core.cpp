@@ -99,6 +99,8 @@ namespace ProjectEngine
 		SDL_GL_SwapWindow(self->mWindow->mRaw);
 	}
 
+	
+
 	void Core::start()
 	{
 		mRunning = true;

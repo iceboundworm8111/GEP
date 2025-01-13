@@ -21,6 +21,24 @@ namespace ProjectEngine
 		std::shared_ptr<Resources> GetResources() const;
 		std::shared_ptr<Input> GetInput() const;
 		std::shared_ptr<Audio> GetAudio() const;
+
+		template <typename T>
+		void FindComponents(std::vector<std::shared_ptr<T>>& _out)
+		{
+			for (size_t ei = 0; ei < mEntities.size(); ++ei)
+			{
+				std::shared_ptr<Entity> e = mEntities.at(ei);
+				for (size_t ci = 0; ci < e->mComponents.size(); ++ci)
+				{
+					std::shared_ptr<Component> c = e->mComponents.at(ci);
+					std::shared_ptr<T> t = std::dynamic_pointer_cast<T>(c);
+					if (t)
+					{
+						_out.push_back(t);
+					}
+				}
+			}
+		}
 	private:
 		int mDummy;
 		std::shared_ptr<Window> mWindow;
