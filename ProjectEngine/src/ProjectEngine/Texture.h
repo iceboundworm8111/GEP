@@ -7,7 +7,7 @@
 namespace ProjectEngine
 {
 	class ModelRenderer;
-
+	class GUI;
 	class Texture : public Resource
 	{
 
@@ -17,6 +17,7 @@ namespace ProjectEngine
 
 	private:
 		friend class ModelRenderer;
+		friend class GUI;
 		std::shared_ptr<Render::Texture> mTexture;
 	};
 

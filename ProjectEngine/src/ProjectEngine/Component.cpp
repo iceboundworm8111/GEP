@@ -4,13 +4,14 @@
 #include "Input.h"
 #include "Keyboard.h"
 #include "Transform.h"
+#include "GUI.h"
 
 namespace ProjectEngine
 {
 	void Component::OnInitialize() {}
 	void Component::OnTick() {}
 	void Component::OnRender() {}
-	
+
 	void Component::Tick()
 	{
 		OnTick();
@@ -38,5 +39,14 @@ namespace ProjectEngine
 	void Component::SetPosition(glm::vec3 _position)
 	{
 		GetTransform()->SetPosition(_position);
+	}
+
+	void Component::GUI()
+	{
+		OnGUI();
+	}
+	std::shared_ptr<GUI> Component::GetGUI()
+	{
+		return GetEntity()->GetCore()->GetGUI();
 	}
 }

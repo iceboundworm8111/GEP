@@ -16,11 +16,22 @@ struct Player : Component
 			std::cout << "A" << std::endl;
 			GetTransform()->Move(vec3(-0.01f, 0.0f, 0.0f));
 		}
+		if (GetKeyboard()->IsKeyPressed(SDLK_d))
+		{
+			std::cout << "D" << std::endl;
+			GetTransform()->Move(vec3(0.01f, 0.0f, 0.0f));
+		}
 		if (GetKeyboard()->IsKeyPressed(SDLK_p))
 		{
 			std::cout << "p" << std::endl;
 			GetEntity()->GetComponent<AudioSource>()->Play();
 		}
+	}
+	void OnGUI()
+	{
+		GetGUI()->test(12);
+		GetGUI()->Button(glm::vec2(0, 0), glm::vec2(100, 100), GetEntity()->GetCore()->GetResources()->Load<Texture>("textures/cat"));
+	
 	}
 	
 };

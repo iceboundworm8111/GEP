@@ -18,6 +18,14 @@ namespace ProjectEngine
 		}
 	}
 
+	void Entity::OnGUI()
+	{
+		for (size_t ci = 0; ci < mComponents.size(); ++ci)
+		{
+			mComponents.at(ci)->GUI();
+		}
+	}
+
 	std::shared_ptr<Core> Entity::GetCore()
 	{
 		return mCore.lock();
