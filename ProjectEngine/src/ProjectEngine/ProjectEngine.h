@@ -16,7 +16,6 @@
 #include "AudioSource.h"
 #include "BoxCollider.h"
 #include "Rigidbody.h"
-#include "GUI.h"
 
 namespace ProjectEngine
 {

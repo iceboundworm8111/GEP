@@ -10,7 +10,7 @@ namespace ProjectEngine
 
 	std::string Resource::GetPath() const
 	{
-		return mPath;
+		return m_path;
 	}
 
 }

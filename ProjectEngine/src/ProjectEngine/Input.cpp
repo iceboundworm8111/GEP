@@ -47,11 +47,5 @@ namespace ProjectEngine
 			mMouse->mClick.push_back(_event.button.button);
 			mMouse->mClickReleased.push_back(_event.button.button);
 		}
-
-		else if (_event.type == SDL_MOUSEMOTION)
-		{
-			mMouse->mXpos = _event.motion.x;
-			mMouse->mYpos = _event.motion.y;
-		}
 	}
 }

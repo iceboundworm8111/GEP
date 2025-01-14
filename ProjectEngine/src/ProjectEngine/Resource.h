@@ -11,7 +11,7 @@ namespace ProjectEngine
 		std::string GetPath() const;
 	private:
 		friend struct ProjectEngine::Resources;
-		std::string mPath;
+		std::string m_path;
 		void Load();
 	};
 }

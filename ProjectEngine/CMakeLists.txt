@@ -66,8 +66,7 @@ src/ProjectEngine/BoxCollider.h
 src/ProjectEngine/BoxCollider.cpp
 src/ProjectEngine/Rigidbody.h
 src/ProjectEngine/Rigidbody.cpp
-src/ProjectEngine/GUI.h
-src/ProjectEngine/GUI.cpp
+
 
 )
 target_link_libraries(ProjectEngine Render)

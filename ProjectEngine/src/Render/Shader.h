@@ -20,7 +20,6 @@ namespace Render
 
 		void draw(Mesh& _mesh,Texture& _tex);
 		void draw(Model& _model, Texture& _tex);
-		void draw(Mesh* _mesh, Texture* _tex);
 	private:
 		GLuint m_id;
 

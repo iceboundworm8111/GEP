@@ -1,4 +1,3 @@
-#pragma once
 #include "Component.h"
 #include <Render/Render.h>
 namespace ProjectEngine
