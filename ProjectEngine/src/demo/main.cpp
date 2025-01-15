@@ -15,11 +15,13 @@ struct Player : Component
 		{
 			std::cout << "A" << std::endl;
 			GetTransform()->Move(vec3(-0.01f, 0.0f, 0.0f));
+			GetTransform()->Rotate(vec3(0.0f, 90.0f, 0.0f));
 		}
 		if (GetKeyboard()->IsKeyPressed(SDLK_d))
 		{
 			std::cout << "D" << std::endl;
 			GetTransform()->Move(vec3(0.01f, 0.0f, 0.0f));
+			GetTransform()->Rotate(vec3(0.0f, -90.0f, 0.0f));
 		}
 		if (GetKeyboard()->IsKeyPressed(SDLK_p))
 		{
@@ -29,8 +31,8 @@ struct Player : Component
 	}
 	void OnGUI()
 	{
-		GetGUI()->test(12);
-		GetGUI()->Button(glm::vec2(0, 0), glm::vec2(100, 100), GetEntity()->GetCore()->GetResources()->Load<Texture>("textures/cat"));
+		
+		//GetGUI()->Button(glm::vec2(0, 0), glm::vec2(100, 100), GetEntity()->GetCore()->GetResources()->Load<Texture>("textures/cat"));
 	
 	}
 	
@@ -41,30 +43,42 @@ int main()
 {
 	std::shared_ptr<Core> core = Core::Initialize();
 
-	// first
-	std::shared_ptr<Entity> ent = core->AddEntity();
-	ent->AddComponent<Player>();
+	//cruthers
+	std::shared_ptr<Entity> Cruthers = core->AddEntity();
+	Cruthers->AddComponent<Player>();
 
-	std::shared_ptr<ModelRenderer> mr = ent->AddComponent<ModelRenderer>();
-	mr->SetModel(core->GetResources()->Load<Model>("models/cat/cat"));
-	mr->SetTexture(core->GetResources()->Load<Texture>("textures/cat"));
-	
-	ent->GetComponent<Transform>()->SetPosition(vec3(1.0f, 0.0f, -10.0f));
-	
-	std::shared_ptr<BoxCollider> bc = ent->AddComponent<BoxCollider>();
+	std::shared_ptr<ModelRenderer> MdlRnd = Cruthers->AddComponent<ModelRenderer>();
+	MdlRnd->SetModel(core->GetResources()->Load<Model>("models/cat/cat"));
+	MdlRnd->SetTexture(core->GetResources()->Load<Texture>("textures/cat"));
+	Cruthers->GetComponent<Transform>()->SetPosition(vec3(1.0f, 0.0f, -10.0f));
+
+	//cruthers box colider
+	std::shared_ptr<BoxCollider> bc = Cruthers->AddComponent<BoxCollider>();
 	bc->SetOffset(glm::vec3(0, 0.2f, 0.54f));
 	bc->SetSize(glm::vec3(3.2f, 1.7f, 8.4f));
-	ent->AddComponent<Rigidbody>();
-	// second
-	std::shared_ptr<Entity> ent2 = core->AddEntity();
-	ent2->AddComponent<TriangleRenderer>();
-	ent2->GetComponent<Transform>()->SetPosition(vec3(-1.0f, 0.0f, -10.0f));
+	Cruthers->AddComponent<Rigidbody>();
 
 
-	std::shared_ptr<BoxCollider> bc2 = ent2->AddComponent<BoxCollider>();
+	//dirt
+	std::shared_ptr<Entity> dirt = core->AddEntity();
+	/*std::shared_ptr<ModelRenderer> MdlRnd2 = dirt->AddComponent<ModelRenderer>();
+	MdlRnd2->SetModel(core->GetResources()->Load<Model>("models/dirt/dirt"));
+	MdlRnd2->SetTexture(core->GetResources()->Load<Texture>("textures/Minecraft"));
+	dirt->GetComponent<Transform>()->SetPosition(vec3(0.0f, -3.0f, -10.0f));
+	*/
+	//Triangle
+	std::shared_ptr<Entity> Triangle = core->AddEntity();
+	Triangle->AddComponent<TriangleRenderer>();
+	Triangle->GetComponent<Transform>()->SetPosition(vec3(-5.0f, 3.0f, -10.0f));
+
+	//triangle box collider
+	std::shared_ptr<BoxCollider> bc2 = Triangle->AddComponent<BoxCollider>();
 	bc2->SetOffset(glm::vec3(0, 0.0f, 0.0f));
 	bc2->SetSize(glm::vec3(3.2f, 1.7f, 8.4f));
-	std::shared_ptr<AudioSource> entAS = ent->AddComponent<AudioSource>();
+
+
+	//audio
+	std::shared_ptr<AudioSource> entAS = Cruthers->AddComponent<AudioSource>();
 	std::shared_ptr<Sound> sound = core->GetResources()->Load<Sound>("sounds/dixie_horn");
 	entAS->SetSound(sound);
 	if (sound) {
@@ -73,6 +87,8 @@ int main()
 	else {
 		printf("Failed to assign audio path\n");
 	}
+
+
 	core->start();
 
 	return 0;

@@ -7,7 +7,7 @@ namespace ProjectEngine
 		mClickPressed.clear();
 		mClickReleased.clear();
 	}
-	bool Mouse::isClick(int _click)
+	bool Mouse::IsClick(int _click)
 	{
 		for (int i = 0; i < mClick.size(); i++)
 		{
@@ -18,7 +18,7 @@ namespace ProjectEngine
 		}
 		return false;
 	}
-	bool Mouse::isClickPressed(int _click)
+	bool Mouse::IsClickPressed(int _click)
 	{
 		for (int i = 0; i < mClick.size(); i++)
 		{
@@ -29,7 +29,7 @@ namespace ProjectEngine
 		}
 		return false;
 	}
-	bool Mouse::isClickReleased(int _click)
+	bool Mouse::IsClickReleased(int _click)
 	{
 		for (int i = 0; i < mClick.size(); i++)
 		{

@@ -2,7 +2,7 @@
 #include "Component.h"
 namespace ProjectEngine
 {
-	class Rigidbody : public Component
+	struct Rigidbody : public Component
 	{
 		void OnTick();
 	};

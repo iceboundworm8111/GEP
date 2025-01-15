@@ -6,9 +6,9 @@ namespace ProjectEngine
 	struct Mouse
 	{
 
-		bool isClick(int _click);
-		bool isClickPressed(int _click);
-		bool isClickReleased(int _click);
+		bool IsClick(int _click);
+		bool IsClickPressed(int _click);
+		bool IsClickReleased(int _click);
 
 		int GetXPosition() { return mXpos; }
 		int GetYPosition() { return mYpos; }

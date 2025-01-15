@@ -32,8 +32,6 @@ namespace ProjectEngine
 			throw std::runtime_error("Component not found");
 			return nullptr;
 		}
-
-	public:
 		/**
 		 * @brief Adds a new component of the specified type to the entity.
 		 * @tparam T The type of the component to add.

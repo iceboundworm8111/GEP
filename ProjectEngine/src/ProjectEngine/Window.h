@@ -10,17 +10,15 @@ namespace ProjectEngine
 	{
 		Window();
 		~Window();
-		void OnInitialize(int mWidth, int mHeight);
+		void OnInitialize(int _width, int _height);
 
 	private:
 		friend class ProjectEngine::Core;
 		SDL_Window* mRaw;
-
-
 		SDL_GLContext mContext;
 
 		Window(const Window& _copy);
-		Window& operator*(const Window& _assign);
+
 		int mWidth;
 		int mHeight;
 	};

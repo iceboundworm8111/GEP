@@ -56,7 +56,7 @@ namespace ProjectEngine
 		if (mousePos.x > _position.x && mousePos.x < _position.x + _size.x &&
 			mousePos.y > _position.y && mousePos.y < _position.y + _size.y)
 		{
-			if (mCore.lock()->GetInput()->GetMouse()->isClickPressed(0))
+			if (mCore.lock()->GetInput()->GetMouse()->IsClickPressed(0))
 			{
 				return 1;
 			}
@@ -67,9 +67,5 @@ namespace ProjectEngine
 		}
 		return 2;
 	}
-	int GUI::test(std::shared_ptr<Model> _model);
-	{
-		std::cout << "test" << std::endl;
-		return 1;
-	}
+	
 }

@@ -27,6 +27,6 @@ namespace ProjectEngine
 			return rtn;
 		}
 	private:
-		std::vector<std::shared_ptr<Resource> > mResources;
+		std::vector<std::shared_ptr<Resource>> mResources;
 	};
 }
