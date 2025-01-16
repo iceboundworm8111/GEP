@@ -1,0 +1,3 @@
+Press 'P' to play audio.
+Press 'A' to move left
+Press 'D' to move right

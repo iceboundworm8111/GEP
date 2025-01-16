@@ -74,12 +74,12 @@ int main()
 	//Triangle
 	std::shared_ptr<Entity> Triangle = core->AddEntity();
 	Triangle->AddComponent<TriangleRenderer>();
-	Triangle->GetComponent<Transform>()->SetPosition(vec3(-5.1f, 3.0f, -10.0f));
+	Triangle->GetComponent<Transform>()->SetPosition(vec3(2.1f, 0.0f, -10.0f));
 
 	//triangle box collider
 	std::shared_ptr<BoxCollider> bc2 = Triangle->AddComponent<BoxCollider>();
 	bc2->SetOffset(glm::vec3(0, 0.0f, 0.0f));
-	bc2->SetSize(glm::vec3(3.2f, 1.7f, 8.4f));
+	bc2->SetSize(glm::vec3(1.5f, 1.5f, 1.5f));
 
 
 	//audio
