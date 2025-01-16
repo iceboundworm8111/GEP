@@ -6,14 +6,14 @@
 
 namespace ProjectEngine
 {
-	class AudioSource;
+	struct AudioSource;
 
 	struct Sound : public Resource
 	{
 		void OnLoad();
 
 	private:
-		friend class AudioSource;
+		friend struct AudioSource;
 
 		ALuint mBufferId = 0;
 		ALenum mFormat = 0;

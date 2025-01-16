@@ -7,9 +7,9 @@
 
 namespace ProjectEngine
 {
-	class ModelRenderer;
+	struct ModelRenderer;
 
-	class Shader : public Resource
+	struct Shader : public Resource
 	{
 		void OnLoad() 
 		{
@@ -17,7 +17,7 @@ namespace ProjectEngine
 		}
 
 	private:
-		friend class ModelRenderer;
+		friend struct ModelRenderer;
 		std::shared_ptr<Render::Shader> mShader;
 	};
 }

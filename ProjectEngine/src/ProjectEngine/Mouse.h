@@ -19,7 +19,7 @@ namespace ProjectEngine
 	private:
 
 
-		friend class Input;
+		friend struct Input;
 		void Update();
 		std::vector <int> mClick;
 		std::vector <int> mClickPressed;

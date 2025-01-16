@@ -13,7 +13,7 @@ namespace ProjectEngine
 	struct GUI;
 
 	/**
-	 * @brief The Core class is responsible for initializing and managing the main components of the engine.
+	 * @brief The Core struct is responsible for initializing and managing the main components of the engine.
 	 */
 	struct Core
 	{
@@ -71,6 +71,8 @@ namespace ProjectEngine
 		 */
 		std::shared_ptr<Audio> GetAudio() const;
 
+		void Quit() { mRunning = false; }
+
 		/**
 		 * @brief Finds components of a specific type in all entities.
 		 * @tparam T The type of the components to find.
@@ -95,7 +97,6 @@ namespace ProjectEngine
 		}
 
 	private:
-		int mDummy; ///< A dummy variable for internal use.
 		std::shared_ptr<Window> mWindow; ///< The window associated with the engine.
 		bool mRunning; ///< A flag indicating whether the engine is running.
 		std::shared_ptr<Input> mInput; ///< The input manager associated with the engine.
@@ -104,5 +105,6 @@ namespace ProjectEngine
 		std::vector<std::shared_ptr<Entity>> mEntities; ///< A list of entities managed by the engine.
 		std::weak_ptr<Core> mSelf; ///< A weak pointer to the Core instance.
 		std::shared_ptr<GUI> mGUI; ///< The GUI manager associated with the engine.
+		
 	};
 }

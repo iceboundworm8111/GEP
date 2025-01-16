@@ -32,8 +32,12 @@ struct Player : Component
 	void OnGUI()
 	{
 		
-		//GetGUI()->Button(glm::vec2(0, 0), glm::vec2(100, 100), GetEntity()->GetCore()->GetResources()->Load<Texture>("textures/cat"));
-	
+		int i = GetGUI()->Button(glm::vec2(0, 0), glm::vec2(200, 200), GetEntity()->GetCore()->GetResources()->Load<Texture>("textures/Quit"));
+		if (i == 1)
+		{
+			GetEntity()->GetCore()->Quit();
+		}
+
 	}
 	
 };
@@ -50,8 +54,8 @@ int main()
 	std::shared_ptr<ModelRenderer> MdlRnd = Cruthers->AddComponent<ModelRenderer>();
 	MdlRnd->SetModel(core->GetResources()->Load<Model>("models/cat/cat"));
 	MdlRnd->SetTexture(core->GetResources()->Load<Texture>("textures/cat"));
-	Cruthers->GetComponent<Transform>()->SetPosition(vec3(1.0f, 0.0f, -10.0f));
-
+	Cruthers->GetComponent<Transform>()->SetPosition(vec3(0.0f, -1.3f, -10.0f));
+	Cruthers->GetComponent<Transform>()->SetScale(vec3(-0.5, -0.5, -0.5));
 	//cruthers box colider
 	std::shared_ptr<BoxCollider> bc = Cruthers->AddComponent<BoxCollider>();
 	bc->SetOffset(glm::vec3(0, 0.2f, 0.54f));
@@ -61,15 +65,16 @@ int main()
 
 	//dirt
 	std::shared_ptr<Entity> dirt = core->AddEntity();
-	/*std::shared_ptr<ModelRenderer> MdlRnd2 = dirt->AddComponent<ModelRenderer>();
+	std::shared_ptr<ModelRenderer> MdlRnd2 = dirt->AddComponent<ModelRenderer>();
 	MdlRnd2->SetModel(core->GetResources()->Load<Model>("models/dirt/dirt"));
-	MdlRnd2->SetTexture(core->GetResources()->Load<Texture>("textures/Minecraft"));
-	dirt->GetComponent<Transform>()->SetPosition(vec3(0.0f, -3.0f, -10.0f));
-	*/
+	MdlRnd2->SetTexture(core->GetResources()->Load<Texture>("textures/dirt"));
+	dirt->GetComponent<Transform>()->SetPosition(vec3(0.0f, -5.0f, -10.0f));
+	dirt->GetComponent<Transform>()->SetScale(vec3(5.0f, 1.5f, 1.5f));
+	
 	//Triangle
 	std::shared_ptr<Entity> Triangle = core->AddEntity();
 	Triangle->AddComponent<TriangleRenderer>();
-	Triangle->GetComponent<Transform>()->SetPosition(vec3(-5.0f, 3.0f, -10.0f));
+	Triangle->GetComponent<Transform>()->SetPosition(vec3(-5.1f, 3.0f, -10.0f));
 
 	//triangle box collider
 	std::shared_ptr<BoxCollider> bc2 = Triangle->AddComponent<BoxCollider>();

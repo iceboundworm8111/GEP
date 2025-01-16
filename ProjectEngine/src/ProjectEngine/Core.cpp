@@ -7,7 +7,7 @@
 #include <iostream>
 #include "Transform.h"
 #include "GUI.h"
-#ifdef _EMSCRIPTEN_`
+#ifdef _EMSCRIPTEN_
 #include <emscripten.h>
 #endif // _EMSCRIPTEN_
 

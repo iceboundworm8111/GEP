@@ -8,7 +8,7 @@ namespace ProjectEngine
 	struct Component;
 
 	/**
-	 * @brief The Entity class represents an entity in the engine, which can have multiple components.
+	 * @brief The Entity struct represents an entity in the engine, which can have multiple components.
 	 */
 	struct Entity
 	{

@@ -6,16 +6,16 @@
 
 namespace ProjectEngine
 {
-	class ModelRenderer;
+	struct ModelRenderer;
 
-	class Model : public Resource
+	struct Model : public Resource
 	{
 	public:
 
 		void OnLoad() { mModel = std::make_shared<Render::Model>(GetPath() + ".obj"); };
 
 	private:
-		friend class ModelRenderer;
+		friend struct ModelRenderer;
 		std::shared_ptr<Render::Model> mModel;
 	};
 }

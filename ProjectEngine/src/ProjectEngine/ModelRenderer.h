@@ -3,9 +3,9 @@
 namespace ProjectEngine
 {
 
-	class Model;
-	class Texture;
-	class Shader;
+	struct Model;
+	struct Texture;
+	struct Shader;
 	struct ModelRenderer : Component
 	{
 		ModelRenderer();

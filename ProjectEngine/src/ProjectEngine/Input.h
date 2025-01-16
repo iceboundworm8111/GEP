@@ -18,8 +18,9 @@ namespace ProjectEngine
 		std::shared_ptr<Keyboard> GetKeyboard() { return mKeyboard; }
 
 		std::shared_ptr<Mouse> GetMouse() { return mMouse; }
+		void Quit() { SDL_Quit(); }
 	private:
-		friend class Core;
+		friend struct Core;
 
 		void CheckInput(const SDL_Event& _event);
 

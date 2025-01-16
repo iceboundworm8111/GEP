@@ -11,7 +11,7 @@ namespace ProjectEngine
 
 	private:
 
-		friend class Input;
+		friend struct Input;
 		void Update();
 
 

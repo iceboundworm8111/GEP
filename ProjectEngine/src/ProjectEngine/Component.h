@@ -11,7 +11,7 @@ namespace ProjectEngine
 	struct GUI;
 
 	/**
-	 * @brief The Component class is a base class for all components that can be attached to an entity.
+	 * @brief The Component struct is a base struct for all components that can be attached to an entity.
 	 */
 	struct Component
 	{
@@ -60,7 +60,7 @@ namespace ProjectEngine
 		glm::vec3 GetPosition();
 
 		/**
-		 * @brief Sets the position of the entity.
+		 * @brief Sets the position of the entity.p
 		 * @param _position The new position as a glm::vec3.
 		 */
 		void SetPosition(glm::vec3 _position);

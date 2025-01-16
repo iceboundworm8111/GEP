@@ -32,6 +32,7 @@ namespace ProjectEngine
 		mMesh->add(face2);
 	}
 
+	
 
 	int GUI::Button(glm::vec2 _position, glm::vec2 _size, std::shared_ptr<Texture> _texture)
 	{
@@ -40,8 +41,8 @@ namespace ProjectEngine
 		model = glm::scale(model, glm::vec3(_size, 1.0f));
 		mShader->uniform("u_Model", model);
 
-		int width = 500;
-		int height = 500;
+		int width = 1080;
+		int height = 720;
 
 		glm::mat4 guiProjection = glm::ortho(0.0f, (float)width, 0.0f, (float)height, -1.0f, 1.0f);
 		mShader->uniform("u_Projection", guiProjection);
@@ -56,7 +57,7 @@ namespace ProjectEngine
 		if (mousePos.x > _position.x && mousePos.x < _position.x + _size.x &&
 			mousePos.y > _position.y && mousePos.y < _position.y + _size.y)
 		{
-			if (mCore.lock()->GetInput()->GetMouse()->IsClickPressed(0))
+			if (mCore.lock()->GetInput()->GetMouse()->IsClickPressed(1))
 			{
 				return 1;
 			}
@@ -67,5 +68,6 @@ namespace ProjectEngine
 		}
 		return 2;
 	}
+	
 	
 }

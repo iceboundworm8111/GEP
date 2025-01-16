@@ -14,7 +14,7 @@ namespace ProjectEngine
 			for (size_t i = 0; i < mResources.size(); ++i)
 			{
 				// Return it if found
-				if (mResources.at(i)->GetPath() == _path)
+				if (mResources.at(i)->GetPath() == "../assets/"+ _path)
 				{
 					return std::dynamic_pointer_cast<T>(mResources.at(i));
 				}
